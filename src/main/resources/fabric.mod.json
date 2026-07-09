@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "voxy-dynamic-addon",
+  "version": "1.1.0",
+  "name": "Voxy Dynamic Area Fix",
+  "description": "A Fabric client addon for Voxy that isolates stored world data by server area and supports manual area overrides.",
+  "authors": ["voxy-fix"],
+  "environment": "client",
+  "entrypoints": {
+    "client": ["me.voxy.dynamic.DynamicVoxyManager"]
+  },
+  "mixins": ["voxy-dynamic.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.16.1",
+    "fabric-api": "*",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "voxy": ">=0.2.15-beta"
+  }
+}

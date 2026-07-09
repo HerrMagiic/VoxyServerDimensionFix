@@ -1,0 +1,46 @@
+plugins {
+    id 'fabric-loom' version '1.17.13'
+    id 'maven-publish'
+}
+
+group = 'me.voxy'
+version = '1.1.0'
+
+repositories {
+    mavenCentral()
+    maven { url = uri('https://maven.fabricmc.net/') }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.21.11"
+    // Voxy 0.2.16-beta+ ships bytecode/access-wideners built directly against official
+    // mappings and Java 25, which breaks Loom's mod-remap pipeline. 0.2.15-beta is a normal,
+    // intermediary-mapped, Java 21 Fabric mod - use that instead. Keeping official mappings
+    // here is fine either way; Loom remaps 0.2.15-beta into this project's mappings normally.
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:0.19.3"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.139.5+1.21.11"
+    implementation "com.google.code.gson:gson:2.10.1"
+    modImplementation "maven.modrinth:voxy:0.2.15-beta"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
