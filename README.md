@@ -4,6 +4,8 @@ A Fabric client addon for [Voxy](https://modrinth.com/mod/voxy) that lets you ke
 
 Voxy normally caches a server's distant terrain in one shared storage bucket per world/dimension. On servers with many unrelated areas on the same dimension (hub worlds, minigame lobbies, instanced zones, etc.), that means chunks from completely different places all get mixed into the same cache, and switching between areas can show stale or "ghost" terrain that doesn't belong there. This addon adds an in-game screen for saving, loading, renaming, and deleting distinct named storage buckets per server, so each area's LOD data stays isolated from the others.
 
+![alt text](image.png)
+
 **This mod was written by an AI coding assistant (Claude, via Claude Code)** in collaboration with the repository owner, who directed the design and tested every change in-game.
 
 ## Features
