@@ -32,21 +32,6 @@ Bind `Open Voxy Dynamic Areas` (under the "Voxy Dynamic" category in Controls) t
 
 An active named save is **session-only**: it's never remembered across joins, and it automatically clears the moment you change dimension (e.g. Overworld → Nether) — falling back to normal per-dimension storage — so wandering away from a save can't silently attribute the wrong area's chunks to it. The currently active name is marked with `●` in the list.
 
-## Configuration
-
-Named saves are stored in `config/voxy_dynamic_addon.json`, per server IP:
-
-```json
-{
-  "namedAreaOverrides": {
-    "play.hypixel.net": {
-      "skyblock": "skyblock",
-      "bedwars": "bedwars"
-    }
-  }
-}
-```
-
 ## Notes
 
 - This addon is client-only.
